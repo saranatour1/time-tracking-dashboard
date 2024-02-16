@@ -1,35 +1,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import iconWork from '../assets/icon-work.svg';
-import iconPlay from '../assets/icon-play.svg';
-import iconStudy from '../assets/icon-study.svg';
-import iconExercise from '../assets/icon-exercise.svg';
-import iconSocial from '../assets/icon-social.svg';
-import iconSelfCare from '../assets/icon-self-care.svg';
-
+import { icons, Activity } from '../utils/constants';
 import DotsIcon from "./DotsIcon.vue";
-
-
-const icons: Record<string, string> = {
-  "Work": iconWork,
-  "Play": iconPlay,
-  "Study": iconStudy,
-  "Exercise": iconExercise,
-  "Social": iconSocial,
-  "Self Care": iconSelfCare
-};
-
-interface Timeframe {
-  current: number;
-  previous: number;
-}
-
-
-const props = defineProps<{ title: string, color: string, icon: string, timeframes: Timeframe }>();
-
-const colorStyle = computed(() => ({ backgroundColor: props.color }));
-
+  const props = defineProps<Activity>();
+  const colorStyle = computed(() => ({ backgroundColor: props.color }));
 </script>
 
 <template>

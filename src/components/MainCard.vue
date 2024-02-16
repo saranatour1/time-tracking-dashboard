@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import avatar from "../assets/image-jeremy.png";
-import { ref } from 'vue';
-const routes = ["Daily", "Weekly", "Monthly"];
-const active = ref("Daily");
+  import avatar from "../assets/image-jeremy.png";
+  const routes = ["Daily", "Weekly", "Monthly"];
+  const props = defineProps<{active:string}>();
+  const emits = defineEmits(['change-route'])
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const active = ref("Daily");
     </div>
 
     <div class=" flex flex-col items-start gap-y-4 p-4 mt-4">
-      <span v-for="route in routes" class=" text-white/40 hover:text-white cursor-pointer ps-4 font-rubik"  :class="{ 'text-white': route === active }" > {{ route }}</span>
+      <button @click="$emit('change-route',route)" v-for="route in routes" class=" text-white/40 hover:text-white cursor-pointer ps-4 font-rubik border-none outline-none"  :class="{ 'text-white': route === props.active }" > {{ route }}</button>
     </div>
   </div>
 </template>

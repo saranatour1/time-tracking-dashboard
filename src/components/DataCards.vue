@@ -1,24 +1,13 @@
 <script setup lang="ts">
-import data from "./data.json";
-import DefaultCard from "./DefaultCard.vue";
+  import DefaultCard from "./DefaultCard.vue";
+import { Activity } from '../utils/constants';
 
-
-const dailyInfo = data.map(activity => ({
-  title: activity.title,
-  color:activity.color,
-  icon:activity.icon,
-  timeframe:{
-    current: activity.timeframes.daily.current,
-  previous: activity.timeframes.daily.previous
-  }
-}))
-
-
+  const props = defineProps<{activities:Activity[]|null}>();
 </script>
 
 
 <template>
   <div  class=" grid  grid-cols-3 w-full h-full gap-6 ">
-    <DefaultCard v-for="info in dailyInfo" :title="info.title" :color="info.color" :icon="info.icon" :timeframes="info.timeframe" />
+    <DefaultCard v-for="info in props.activities" :title="info.title" :color="info.color" :icon="info.icon" :timeframes="info.timeframes" />
   </div>
 </template>
