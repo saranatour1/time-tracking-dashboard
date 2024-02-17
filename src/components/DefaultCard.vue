@@ -17,7 +17,7 @@ import DotsIcon from "./DotsIcon.vue";
         <DotsIcon />
       </div>
 
-      <div class=" flex flex-col ">
+      <div class=" flex flex-col max-md:flex-row max-md:w-full max-md:justify-between max-md:items-center">
         <span class=" text-4xl text-white font-rubik">{{ props.timeframes.current }}hrs</span>
         <span class="text-white/60 mt-2 font-rubik">Last week - {{ props.timeframes.previous }}hrs</span>
       </div>

@@ -47,10 +47,10 @@ onUnmounted(() => {
 
 <template>
   <main class="p-0 m-0 w-full max-w-full min-h-screen bg-blue-very-dark flex flex-col justify-center items-center">
-      <section class="w-full max-w-[69.375rem] h-full min-h-[32.375rem] grid  grid-col-4 grid-flow-col p-0 m-0 ">
+      <section class="w-full max-w-[69.375rem] h-full min-h-[32.375rem] grid  grid-col-4 grid-flow-col p-0 m-0 max-lg:max-w-full max-lg:p-4 max-md:grid-rows-1 max-md:grid-flow-row">
         <MainCard :active="active" @change-route="str=> changeActive(str)"/>
 
-        <div class=" col-span-3">
+        <div class=" col-span-3 max-md:row-span-1">
           <DataCards :activities="activeItems"/>
         </div>
       </section>  
