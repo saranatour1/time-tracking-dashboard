@@ -2,7 +2,7 @@
   import avatar from "../assets/image-jeremy.png";
   const routes = ["Daily", "Weekly", "Monthly"];
   const props = defineProps<{active:string}>();
-  const emits = defineEmits(['change-route'])
+  const emits = defineEmits(['change-route']);
 </script>
 
 <template>
@@ -16,7 +16,7 @@
     </div>
 
     <div class=" flex flex-col items-start gap-y-4 p-4 mt-4 max-md:flex-row">
-      <button @click="$emit('change-route',route)" v-for="route in routes" class=" text-white/40 hover:text-white cursor-pointer ps-4 font-rubik border-none outline-none"  :class="{ 'text-white': route === props.active }" > {{ route }}</button>
+      <button @click="$emit('change-route',route)" v-for="route in routes" class="  hover:text-white cursor-pointer ps-4 font-rubik border-none outline-none"  :class="route === props.active ? 'text-white':'text-white/40'" > {{ route }}</button>
     </div>
   </div>
 </template>
